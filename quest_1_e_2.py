@@ -6,8 +6,8 @@ import numpy.random as npr
 #Atribua a um terceiro ndarray a soma elemento a elemento dos dois primeiros ndarrays
 
 def questao_1():
-    a1D_int_a = npr.randint(1, 20, 10)
-    a1D_int_b = npr.randint(1, 20, 10)
+    a1D_int_a = npr.randint(1, 20, 12)
+    a1D_int_b = npr.randint(1, 20, 12)
     return a1D_int_a + a1D_int_b
 
 #Questão 2

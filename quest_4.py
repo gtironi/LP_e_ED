@@ -1,15 +1,14 @@
 import numpy as np
 import numpy.random as npr
+from quest_1_e_2 import questao_1
 
 def questao_4():
-    arr_5 = npr.randint(10, 50, size = 20)
-    arr_6 = npr.randint(10, 50, size = 20)
+    arr_5 = questao_1()
+    arr_6 = questao_1()
 
     # Obs: Como o método usado para gerar os arrays foi o randint do numpy.random, é possível que haja duplicatas nos índices por um número se repitir.
 
     in_comun_number  = []
-
-    print(arr_5, arr_6)
 
     for number in arr_5:
         if number in arr_6:
@@ -30,3 +29,5 @@ def questao_4():
         print(number_not_comun, end = " ")
 
 
+
+questao_4()
