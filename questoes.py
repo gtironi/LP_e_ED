@@ -10,28 +10,29 @@ def gera_ndarray(num_elementos):
 #Atribua a um terceiro ndarray a soma elemento a elemento dos dois primeiros ndarrays
 
 def questao_1():
-    arr_1 = gera_ndarray(12)
-    arr_2 = gera_ndarray(12)
-    arr_3 = arr_1 + arr_2
-    return arr_3
+    arr_1 = gera_ndarray(10)
+    arr_2 = gera_ndarray(10)
+    arr_soma = arr_1 + arr_2
+    return arr_soma
 
 #Questão 2
 # Redimensione o terceiro ndarray para duas dimensões
 # Converta os dados para algum tipo de ponto flutuante
 # Atribua ao terceiro ndarray sua transposta
 
-def questao_2(arr_3 = questao_1()):
-    a2D_int_c = ndarray.reshape(2,5)
-    a2D_float_c = a2D_int_c.astype('float64') 
+def questao_2(arr_soma):
+    arr_3 = arr_soma.reshape(2,5)
+    a2D_float_c = arr_3.astype('float64') 
+    print(a2D_float_c)
     a5D_float_c = np.transpose (a2D_float_c)
-    return a2D_float_c, a5D_float_c
-
+    print(a5D_float_c)
+    return arr_3
 #Questão 3
 # Gere um quarto ndarray de duas dimensões utilizando o método de sua preferência da biblioteca NumPy
 # Atribua ao quarto ndarray o resultado da multiplicação do quarto ndarray pelo terceiro ndarray
 
-def questao_3(arr_3 = questao_1()):
-    arr_4 = gera_ndarray(12).reshape(5,2)
+def questao_3(arr_3):
+    arr_4 = gera_ndarray(10).reshape(2,5)
     arr_4 = arr_4 * arr_3
     return arr_4
 
@@ -81,7 +82,7 @@ def questao_4():
 # A cada elemento ímpar atribua -1
 # A cada elemento par atribua 1
 
-def questão_5(arr_5, arr_6):
+def questao_5(arr_5, arr_6):
     arr_7 = gera_ndarray(20)
     arr_horizont = np.hstack((arr_5, arr_6, arr_7))
     
