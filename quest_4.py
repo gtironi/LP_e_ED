@@ -1,5 +1,4 @@
 import numpy as np
-import numpy.random as npr
 from quest_1_e_2 import questao_1
 
 def questao_4():
@@ -28,6 +27,11 @@ def questao_4():
     for number_not_comun in not_in_comun_number:
         print(number_not_comun, end = " ")
 
+    return {
+        "array_5": arr_5,
+        "array_6": arr_6,
+        "in_comun_numbers": in_comun_number,
+        "not_in_comun_numbers": not_in_comun_number
+        }
 
 
-questao_4()

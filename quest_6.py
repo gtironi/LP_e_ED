@@ -1,5 +1,4 @@
 import numpy as np
-import numpy.random as npr
 from quest_1_e_2 import questao_1
 
 def questao_6():
