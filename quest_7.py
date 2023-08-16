@@ -8,10 +8,11 @@ def questao_7():
     identidade_3 = np.identity(3)
     determinante = np.linalg.det(arr_8)
     inversa = np.linalg.inv(arr_8)
-    print(arr_8)
-    print(inversa)
-    print(np.dot(arr_8, inversa).astype(int))
+    print("Oitavo array:\n ", arr_8)
+    print("Determinante: ", determinante)
+    print("Inversa:\n ", inversa)
+    print("Mostrando a corretude(Oitavo array multiplicado pela inversa = identidade):\n",np.dot(arr_8, inversa).astype(int))
     
-    return identidade_3, determinante, inversa
+
 
 questao_7()
