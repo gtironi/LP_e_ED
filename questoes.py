@@ -69,12 +69,7 @@ def questao_4():
     for number_not_comun in not_in_comun_number:
         print(number_not_comun, end = " ")
 
-    return {
-        "array_5": arr_5,
-        "array_6": arr_6,
-        "in_comun_numbers": in_comun_number,
-        "not_in_comun_numbers": not_in_comun_number
-        }
+    return arr_5, arr_6,
 
 #Questão 5
 # Declare um sétimo ndarray e atribua o empilhamento horizontal do quinto e do sexto ndarrays
@@ -114,3 +109,20 @@ def questao_6():
 
     return vec_a_b
     
+#Questão 6
+# Gere um oitavo ndarray de duas dimensões [3x3]
+# Gere a matriz identidade
+# Calcule o determinante
+# Calcule a inversa e demonstre a corretude
+
+def questao_7():
+    arr_8 = np.array([[6, 1, 1], 
+                  [4, -2, 5], 
+                  [2, 8, 7]]) 
+    identidade_3 = np.identity(3)
+    determinante = np.linalg.det(arr_8)
+    inversa = np.linalg.inv(arr_8)
+    print("Oitavo array:\n ", arr_8)
+    print("Determinante: ", determinante)
+    print("Inversa:\n ", inversa)
+    print("Mostrando a corretude(Oitavo array multiplicado pela inversa = identidade):\n",np.dot(arr_8, inversa).astype(int))
