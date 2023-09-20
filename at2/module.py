@@ -21,19 +21,21 @@ def le_arquivo_texto(name_file_txt):
         when a file error
     """
     try:
-    with open(name_file_txt) as f:
-        content = f.read()
+        with open(name_file_txt) as f:
+            content = f.read()
+            return content
     except FileNotFoundError:
         print('verifique o nome do seu arquivo')
         le_arquivo_texto(input("Digite o nome do arquivo: "))
 
 
 def difference_in_days(date):
+    d1, d2 = date.split(" - ")
+    print(d1, d2)
     
 
-for row in df:
-    #obter dia de hoje
-    d1 = pd.to_datetime(datetime.today())
-    #obter data do csv
-    d2 = pd.to_datetime(df["PasswordLastSet"], infer_datetime_format=True)
-    diff = **abs(**(d1-d2).days **)**
+    d1 = pd.to_datetime(d1, format = 'dd/mm/yyyy')
+
+    d1 = pd.to_datetime(d2, format = 'dd/mm/yyyy')
+    diff = abs((d1-d2).days)
+    return diff
