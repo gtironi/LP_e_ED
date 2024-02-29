@@ -64,3 +64,19 @@ string verifica_IMC(float fIMC)
     return cIndice;
 }
 
+int main()
+{
+    float fAltura, fMassa;
+    cout << "Digite sua altura (em metros): "; //Pede para o usuário informar sua altura
+    cin >> fAltura;
+
+    cout << "Digite seu peso (em quilogramas): "; //Pede para o usuário informar seu peso
+    cin >> fMassa;
+
+    float fIMC = calcula_IMC(fAltura, fMassa); //Calcula o IMC
+
+    cout << "Seu IMC é: " << fIMC << ". Esse valor se enquadra como: " << verifica_IMC(fIMC) << endl; //Retorna o IMC e o classificação para o usuário
+
+    return 0;
+}
+
