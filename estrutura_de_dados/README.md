@@ -8,8 +8,10 @@ O arquivo [**anos_bissextos.cpp**](https://github.com/gtironi/LP_e_ED/blob/main/
 
 ## Exemplo de utilização (verifica_IMC.cpp)
 
-
+![Passei no terminal uma altura e uma massa e ele me retornou o IMC e a classificação correspondente](https://github.com/gtironi/LP_e_ED/blob/2954db5b0c780e713ab42d697b95a812808474ca/estrutura_de_dados/exemples/imc.png)
 
 ## Exemplo de utilização (anos_bissextos.cpp)
+
+![Passei no terminal um ano e ele me informaou se o ano é bissexto](https://github.com/gtironi/LP_e_ED/blob/2954db5b0c780e713ab42d697b95a812808474ca/estrutura_de_dados/exemples/bissexto.png)
 
 
