@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int doub(int*);
+void doub(int*);
 
 int main()
 {
@@ -29,7 +29,7 @@ int main()
   return 0;
 }
 
-int doub(int *ptr_num)
+void doub(int *ptr_num)
 {
     (*ptr_num) = (*ptr_num) * 2;
 }
