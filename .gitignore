@@ -13,4 +13,5 @@ bin/
 Debug/
 Release/
 
-.vscode
+# Diretório do VSCode
+.vscode/
