@@ -1,0 +1,16 @@
+# Arquivos de compilação gerados
+*.o
+*.obj
+*.exe
+*.out
+
+# Arquivos de dependências
+*.d
+
+# Diretórios de build
+build/
+bin/
+Debug/
+Release/
+
+.vscode
