@@ -1,5 +1,4 @@
 #include <iostream>
-#include "utils.h"
 
 using namespace std;
 
@@ -13,7 +12,7 @@ typedef struct Stack{
 } Stack;
 
 // Definindo funções.
-Node* newNode(int );
+Node* newNode(int);
 Stack* newStack();
 void push(Stack* const stack, int);
 void showTopElement(Stack* const stack);
@@ -50,7 +49,8 @@ int main(){
 	cout << "===============" << endl;
 	showElements(stack);
 
-	iguais();
+	cout << "==========================================" << endl;
+
 	pop(stack);
 	cout << "-----" << endl;
 	showElements(stack);
@@ -96,12 +96,12 @@ void showTopElement(Stack* const stack){
 void showElements(Stack* const stack){
 
 	if(stack->ptrTop == nullptr){
-		cout << "Pilha vazia" << endl;
+		cout << "pilha vazia" << endl;
 		return;
 	}
 
 	Node* current = stack->ptrTop;
-	while (current->ptrNext != nullptr){
+	while (current != nullptr){
 		cout << "Elemento: " << current->iData << endl;
 		current = current->ptrNext;
 	}
@@ -112,7 +112,7 @@ void showElements(Stack* const stack){
 void pop(Stack* const stack){
 
 	if(stack->ptrTop == nullptr){
-		cout << "Pilha vazia" << endl;
+		cout << "pilha vazia" << endl;
 		return;
 	}
 

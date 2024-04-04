@@ -1,5 +1,4 @@
 #include <iostream>
-#include "utils.h"
 
 using namespace std;
 
@@ -22,7 +21,8 @@ typedef struct Queue
 
 Queue* newQueue(){
     // Precisamos pedir memoria para o SO.
-    Queue* temp = (Queue*) malloc(sizeof(Queue));
+    // (pinho) Queue* temp = (Queue*) malloc(sizeof(Queue));
+    Queue* temp = new Queue;
 
     // Fila vazia: primeiro e último elementos nulos.
     temp->front = nullptr;
@@ -32,7 +32,8 @@ Queue* newQueue(){
 }
 
 Node* newNode(int iValue){
-    Node* temp = (Node*) malloc(sizeof(Node));
+    // (pinho) Node* temp = (Node*) malloc(sizeof(Node));
+    Node* temp = new Node;
 
     temp->iData = iValue;
     temp->next = nullptr;
@@ -80,11 +81,12 @@ void deQueue(Queue* const queue){
 
     if (queue->front == nullptr){
         // fila vazia
-        queue->rear = nullptr
+        queue->rear = nullptr;
     }
 
     // libera memória alocada o que era o primeiro elemento.
-    free(temp);
+    // (pinho) free(temp);
+    delete temp;
 }
 
 void showFirstElement(Queue* const queue){
@@ -100,7 +102,7 @@ void showElements(Queue* const queue){
 
     //Fila vazia.
     if (queue->front == nullptr){
-        cout << "Fila vazia" << endl;
+        cout << "fila vazia" << endl;
         return;
     }
 
@@ -128,20 +130,20 @@ int main(){
     showFirstElement(queue);
     showLastElement(queue);
 
-    iguais();
+    cout << "==========================================" << endl;
 
     // adicionando elementos na fila
     enQueue(queue, 0);
     showFirstElement(queue);
     showLastElement(queue);
     
-    iguais();
+    cout << "==========================================" << endl;
 
     enQueue(queue, 10);
     showFirstElement(queue);
     showLastElement(queue);
 
-    iguais();
+    cout << "==========================================" << endl;
 
     enQueue(queue, 11);
     enQueue(queue, 12);
@@ -150,14 +152,17 @@ int main(){
     enQueue(queue, 15);
     showElements(queue);
 
-    iguais();
+    cout << "==========================================" << endl;
 
     Queue* queue2 = newQueue();
 
     deQueue(queue);
+
+    showElements(queue);
+
     deQueue(queue2);
 
-    iguais();
+    cout << "==========================================" << endl;
 
     return 0;
 }

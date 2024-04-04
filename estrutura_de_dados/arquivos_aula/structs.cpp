@@ -10,7 +10,7 @@ typedef struct Livro
     string strTitulo;
     string strAutor;
     int iPublicacao;
-};
+} Livro;
 
 struct Ponto
 {
@@ -24,7 +24,7 @@ typedef struct Biblioteca
     string strNome;
     int iTamAcervo;
     Livro livros[1000];    
-};
+} Biblioteca;
 
 void listaLivros(Biblioteca biblioteca);
 void adicionaLivro(Biblioteca &biblioteca, Livro novoLivro);

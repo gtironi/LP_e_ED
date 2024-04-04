@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void troca(int& iValor1, int& iValor2);
+void troca(int &iValor1, int &iValor2);
 
 int& trocaElemento(int iElemento, int arriVetor[]);
 
@@ -16,7 +16,7 @@ int main(){
     
     cout << "==============================================" << endl;
 
-    string& strrefNome = strNome;
+    string& strrefNome = strNome; //cria referencia para variávl strNome
     int& irefValor = iValor;
 
     cout << "Valor Ref.string: " << strrefNome << " Endereço da Ref.String: " << &strrefNome <<endl;
@@ -38,8 +38,6 @@ int main(){
     cout << "Valor 1: " << iValor1 << endl;
     cout << "Valor 2: " << iValor2 << endl;
 
-    // o c++ automaticamente cria um referenciamento das variáveis para que seja
-    // possível alterar diretamente o valor na memória, não uma cópia dele
     troca(iValor1, iValor2);
 
     cout << "==============================================" << endl;
@@ -54,6 +52,8 @@ int main(){
     for (int i = 0; i < 5; i++){
         cout << "Vetor[" << i << "] = " << arriVetor[i] << endl;
     }
+
+    arriVetor[3] = 11;
 
     trocaElemento(4, arriVetor) = 111;
     
@@ -73,9 +73,6 @@ void troca(int& iValor1, int& iValor2){
     iValor2 = iTemp;
 }
 
-// aqui usamos a referência para mudar diretamente o valor na posição requerida do vetor.
-// a função retorna uma referência para a posição que pedimos do vetor e, ao atribuirmos
-// um valor a esse retorno, estamos alterando diretamente o valor naquela posição do vetor.
 int& trocaElemento(int iElemento, int arriVetor[]){
     return arriVetor[iElemento];
 }
