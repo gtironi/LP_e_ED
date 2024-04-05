@@ -10,7 +10,7 @@ using namespace std;
 
 typedef struct Node{
     int iData;
-    struct Node* next;
+    Node* next;
 } Node;
 
 typedef struct Queue
