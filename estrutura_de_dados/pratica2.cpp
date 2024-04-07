@@ -100,7 +100,7 @@ void showTopElement(Stack* const stack){
         std::cout << "O primeiro elemento é: " << stack->head->iData << std::endl;
         return;
     }
-    //((stack->head != nullptr) ? stack->head->iData, -1))
+    //((stack->head != nullptr) ? stack->head->iData: -1))
 }
 
 void showElements(Stack* const stack){
