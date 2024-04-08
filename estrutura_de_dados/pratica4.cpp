@@ -1,20 +1,21 @@
 #include <iostream>
 
-typedef struct Node {
+typedef struct Node{
     int iData;
-    Node* prtNext;
+    Node* ptrNext;
 } Node;
 
-typedef struct Stack {
-    Node* head;
+typedef struct Stack{
+    Node* top;
 } Stack;
 
-Stack* newStack();
 Node* newNode(int);
+Stack* newStack();
 void push(Stack* const, int);
 void pop(Stack* const);
 void showTopElement(Stack* const);
 void showElements(Stack* const);
+
 
 
 int main(){
@@ -49,8 +50,8 @@ int main(){
 Node* newNode(int iValue){
     Node* temp = (Node*) malloc(sizeof(Node));
 
-    temp->iData = iValue;
-    temp->prtNext = nullptr;
+    temp -> iData = iValue;
+    temp -> ptrNext = nullptr;
 
     return temp;
 }
@@ -58,32 +59,37 @@ Node* newNode(int iValue){
 Stack* newStack(){
     Stack* temp = (Stack*) malloc(sizeof(Stack));
 
-    temp->head = nullptr;
+    temp -> top = nullptr;
 
     return temp;
 }
 
 void push(Stack* const stack, int iValue){
+    
     Node* temp = newNode(iValue);
 
-    temp->prtNext = stack->head; 
-    stack->head = temp;
-    
+    if(stack -> top == nullptr){
+        stack -> top = temp;
+        return;
+    }
+
+    temp -> ptrNext = stack -> top;
+    stack -> top =  temp;
+
     return;
 }
 
 void pop(Stack* const stack){
-
-    if (stack->head == nullptr){
-        std::cout << "Pilha vazia" << std::endl;
+    if(stack -> top == nullptr){
+        std::cout << "pilha vazia" << std::endl;
         return;
     }
 
-    Node* temp = stack->head;
+    Node* temp = stack -> top;
 
-    std::cout << "elemento retirado: " << temp->iData << std::endl;
+    std::cout << "elemento removido: " << temp -> iData << std::endl;
 
-    stack->head = temp->prtNext;
+    stack -> top = temp -> ptrNext;
 
     free(temp);
 
@@ -91,29 +97,23 @@ void pop(Stack* const stack){
 }
 
 void showTopElement(Stack* const stack){
-    if (stack->head == nullptr){
-        std::cout << "Pilha vazia" << std::endl;
-        return;
-    }
-    else{
-        std::cout << "O primeiro elemento é: " << stack->head->iData << std::endl;
-        return;
-    }
-    //((stack->head != nullptr) ? stack->head->iData: -1))
+    std::cout << "primeiro elemento (pilha vazia = -1): " << ((stack -> top != nullptr) ? stack -> top -> iData : -1) << std::endl;
+    return;
 }
 
 void showElements(Stack* const stack){
-    if (stack->head == nullptr){
-        std::cout << "Pilha vazia" << std::endl;
+    Node* current = stack -> top;
+
+    if(current == nullptr){
+        std::cout << "pilha vazia" << std::endl;
         return;
     }
 
-    Node* current = stack->head;
-
     int iCounter = 1;
-    while (current != nullptr){
-        std::cout << "O elemento " << iCounter << " da pilha é: " << current->iData << std::endl;
-        current = current->prtNext;
+
+    while(current != nullptr){
+        std::cout << "elemento " << iCounter << " da pilha: " << current -> iData << std::endl;
+        current = current -> ptrNext;
         iCounter++;
     }
 
