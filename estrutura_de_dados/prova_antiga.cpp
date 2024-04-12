@@ -295,6 +295,10 @@ void switchFirstLast(LinkedList* const linkedList){
         return;
     }
 
+    if(linkedList -> ptrHead -> ptrNext == nullptr){
+        return;
+    }
+
     Aluno* firstAluno = linkedList -> ptrHead;
     Aluno* lastAluno = linkedList -> ptrHead;
     
