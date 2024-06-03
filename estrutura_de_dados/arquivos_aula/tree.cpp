@@ -90,7 +90,19 @@ int main()
     cout << "Atravessar - postorder: ";
     traversePostOrder(root);
     cout << endl;
-        
+    
+    cout << "####################" << endl;
+    
+    cout << "Atravessar - preorder: ";
+    traversePreOrder(root);
+    cout << endl;
+    
+    deleteNode(root, 7);
+    
+    cout << "Atravessar - preorder: ";
+    traversePreOrder(root);
+    cout << endl;
+    
     return 0;
 }
 
@@ -144,7 +156,38 @@ Node* lesserLeaf(Node* startingNode)
     return ptrCurrent;
 }
 
-Node* deleteNode(Node* startingNode, int iData) {}
+Node* deleteNode(Node* startingNode, int iData)
+{
+    if (startingNode == nullptr) return nullptr;
+    
+    if (iData < startingNode->iPayload) startingNode->ptrLeft = deleteNode(startingNode->ptrLeft, iData);
+    else if (iData > startingNode->iPayload) startingNode->ptrRight = deleteNode(startingNode->ptrRight, iData);
+    else
+    {
+        Node* ptrTemp = nullptr;
+        
+        if (startingNode->ptrLeft == nullptr)
+        {
+            ptrTemp = startingNode->ptrRight;
+            free(startingNode);
+            return ptrTemp;
+        }
+        else if (startingNode->ptrRight == nullptr)
+        {
+            ptrTemp = startingNode->ptrLeft;
+            free(startingNode);
+            return ptrTemp;            
+        }
+        
+        ptrTemp = lesserLeaf(startingNode->ptrRight);
+        
+        startingNode->iPayload = ptrTemp->iPayload;
+        
+        startingNode->ptrRight = deleteNode(startingNode->ptrRight, ptrTemp->iPayload);
+    }
+    
+    return startingNode;
+}
 
 void traversePreOrder(Node* ptrStartingNode)
 {
